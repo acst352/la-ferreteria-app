@@ -7,7 +7,7 @@ import { Modal, ModalHeader, ModalFooter } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../index.css';
 
-function Navbar(props) {
+function NavbarEmployees(props) {
     const { setLoggedIn } = useContext(LoggedInContext)
     const [modal, setModal] = useState(false);
 
@@ -17,7 +17,6 @@ function Navbar(props) {
         navigate('/');
     }
     const navigate = useNavigate();
-
     return (
         <>
             <nav id="navBarMain" className="navbar navbar-expand-lg sticky-top justify-content-between">
@@ -31,8 +30,7 @@ function Navbar(props) {
                 </div>
                 <button id="navbar_anchor" className="nav-link" onClick={() => props.changeView('product')}>Productos</button>
                 <button id="navbar_anchor2" className="nav-link" onClick={() => props.changeView('provider')}>Proveedores</button>
-                <button id="navbar_anchor" className="nav-link" onClick={() => { navigate('/auth') }}>Autorización de usuarios</button>
-                <button id="navbar_anchor" className="nav-link" onClick={() => setModal(true)}>Cerrar Sesión</button>
+                <button id="navbar_anchor" className="nav-link" onClick={() => { setModal(true) }}>Cerrar Sesión</button>
                 <Modal isOpen={modal}>
                     <ModalHeader style={{ display: 'block' }}>
                         <h2 id="table-header-text" style={{ float: 'left' }}>¿Estás seguro que quieres cerrar sesión?</h2>
@@ -50,4 +48,4 @@ function Navbar(props) {
     );
 }
 
-export default Navbar;
+export default NavbarEmployees;
